@@ -2,8 +2,35 @@
 
 A Python script that parses an Excel spreadsheet with multiple tabs containing different types of map data and creates an interactive Folium map.
 
-## Example Output
-- [Map w/ Lines](map_with_lines.html)
+## My Published Map
+
+[Open my Assignment 2 map](https://luyaowang2002.github.io/assignment-2/map.html)
+
+## Assignment 2 Changes
+
+- Added CMU Miami at `[25.7984, -80.2027]` and Miami International Airport at `[25.7950, -80.2867]` to the `markers` sheet.
+- Added the purple `CMU Miami to MIA` connection in the `lines` sheet. This is a straight connection, not a driving route.
+- Completed `add_lines()`, read the `lines` sheet, and called the function from the map-building workflow. All three routes in the workbook now appear.
+- The map starts with all markers in view. Zoom into Miami to see the campus and airport separately, or click their marker cluster.
+
+## Extra Feature: Distance Measurement
+
+I added Folium's `MeasureControl` so visitors can measure distances in kilometers and miles. Open the ruler control in the upper-right corner, start a measurement, click points on the map, and finish the measurement to see its length. This is useful for estimating the campus-to-airport straight-line distance; it does not calculate a road route or travel time.
+
+## Run This Project
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python assignment2.py sample_map_data.xlsx map.html
+```
+
+On Windows, activate with `.venv\Scripts\activate` instead. Open `map.html` in a browser. Internet access is needed for map tiles and JavaScript libraries. The generated `map.html` is committed for GitHub Pages hosting.
+
+## GitHub Pages
+
+This project is published from the `main` branch, root directory. The link above opens my generated map, not the course example.
 
 ## Features
 
@@ -174,7 +201,7 @@ The script generates an interactive HTML map with:
 - Zoom and pan controls
 - Layer switcher for different map styles
 - Clickable markers with popups
-- Legend for different elements
+- Distance measurement tool
 
 ## Notes
 
